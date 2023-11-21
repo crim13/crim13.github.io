@@ -1,0 +1,390 @@
+/* ****************************************************** GENERAL */
+#root {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(15, 15, 15);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    font-family: 'Fira Mono';
+} 
+.section {
+    width: 100%;
+    padding: 30px 15%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+a {
+    color: rgb(183, 183, 183);
+    font-family: 'Nunito';
+    text-decoration: none;
+}
+a:hover {
+    color: rgb(165, 99, 13);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}    
+.section-title {
+    font-size: 26px;
+    display: inline-block;
+    color: rgb(183, 183, 183);
+    border-radius: 3px;
+    font-weight: 400;
+    position: relative;
+    width: 90%;
+    margin: 0;
+    font-family: 'Fira Mono';
+}
+
+
+/* ****************************************************** ABOUT ME [SECTION] */
+div.header {
+    background: #1c1f31;
+    text-align: left;
+    margin: 0;
+    position: relative;
+    height: 500px;
+    width: 100vw;
+    display: flex;
+    min-height: 500px;
+    color: rgb(183, 183, 183);
+    padding: 0 15%;
+}
+img.image {
+    position: absolute;
+    bottom: -15px;
+    left: -80px;
+    max-width: 320px;
+    max-height: 120%;
+    pointer-events: none;
+}
+.about-meta {
+    width: 100%;
+    margin: auto;
+    position: relative;
+    padding-left: 10%;
+}
+h1#name {
+    font-size: 34px;
+    display: inline;
+    background-color: rgb(183, 183, 183);
+    color: #1c1f31;
+    border-radius: 3px;
+    padding: 0 15px;
+}
+h2#title {
+    margin: 0;
+    margin-top: 5px;
+    font-family: 'Nunito';
+    color: rgb(165, 99, 13);
+}
+span.separator {
+    margin: 5px 0;
+    height: 2px;
+    display: block;
+    background-color: rgb(165, 99, 13);
+    width: 30%;
+}
+p#description {
+    margin: 0;
+    margin-bottom: 30px;
+    max-width: 70%;
+    color: rgb(183, 183, 183);
+    font-family: 'Nunito';
+}
+.button-icon {
+    width: 30px;
+    float: left;
+    margin-right: 10px;
+    background: #f0f8ff;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+}
+.button-text {
+    margin-left: 5px;
+    line-height: 30px;
+    transition: all 0.3s ease-in-out;
+    font-family: 'Fira Mono';
+}
+.header-button {
+    background-color: rgb(15, 15, 15);
+    border-radius: 5px;
+    border: 0;
+    padding: 0;
+    color: rgb(183, 183, 183);
+    width: 180px;
+    text-align: left;
+    cursor: pointer;
+    margin-right: 20px;
+    overflow: hidden;
+    position: relative;
+    font-size: 16px;
+    position: relative;
+    transition: color 0.2s;
+    margin-bottom: 20px;
+    
+}
+.header-button::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: transparent;
+    transition: width 0.3s ease-in-out;
+}
+
+.header-button:hover .button-text {
+    color: rgb(165, 99, 13);
+    margin-left: 15px;
+}
+
+.meta-wrapper {
+    z-index: 2;
+    position: relative;
+    text-shadow: -2px 2px 3px black;
+}
+
+/* ****************************************************** PORTFOLIO [SECTION] */
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+input.search-input {
+    font-size: 33px;
+    font-family: "fira mono";
+    border: none;
+    outline: none;
+    color: rgb(183, 183, 183);
+    background: none;
+    position: absolute;
+        left: 0;
+        right: 0;
+        opacity: 0;
+}
+/* GRID / LIST */
+.toggle-view-wrapper {
+    height: 30px;
+    overflow: hidden;
+    display: inline-block;
+    float: right;
+}
+img.view-list,
+img.view-grid {
+    height: 30px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+/* FILES STYLE */
+.project-wrapper {
+    margin-bottom: 30px;
+    background-color: rgb(15, 15, 15);
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: 2px solid rgb(165, 99, 13);
+    position: relative;
+    box-shadow: 0px 0px 0px 1px rgb(183, 183, 183);
+    transition: all 0.1s ease-in-out;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.project-icon {
+    width: 150px;
+    height: 150px;
+    float: left;
+    margin-right: 3%;
+    background-color: rgb(15, 15, 15);
+}
+.default-meta {
+    color: rgb(183, 183, 183);
+    margin: 0;
+}
+.project-title {
+    color: rgb(165, 99, 13);
+    font-size: 18px;
+    margin-bottom: 10px;
+    position: relative;
+    padding-bottom: 5px;
+}
+.project-language {
+    font-size: 12px;
+    color: rgb(183, 183, 183);
+}
+.project-meta,
+.project-description-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: auto;
+    height: 100%;
+}
+.project-meta {
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+}
+.project-description-container {
+    margin-bottom: 30px;
+}
+p.project-description {
+    margin-top: 10px;
+    width: 80%;
+    font-size: 16px;
+    color: rgb(183, 183, 183);
+    font-family: 'Nunito';
+}
+.project-title::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: transparent;
+    transition: width 0.3s ease-in-out;
+}
+.project-wrapper:hover .project-meta {
+    padding-left: 10px;
+}
+.project-wrapper:hover {
+    box-shadow: 0px 0px 0px 2px rgb(183, 183, 183);
+}
+
+.project-description-big {
+    color: rgb(183, 183, 183);
+    margin-bottom: 20px;
+    padding-right: 20%;
+}
+
+/* ****************************************************** CONTACT [SECTION] */
+.contact-info {
+    min-height: 100px;
+    display: block;
+    margin: 0;
+    margin-top: 30px;
+    padding: 0px 0;
+    color: rgb(183, 183, 183);
+    background-color: rgb(15, 15, 15);
+    border-radius: 10px;
+}
+
+.contact-link {
+    display: block;
+    padding: 30px 30px;
+    border-radius: 3px;
+    position: relative;
+    border-bottom: 1px solid #1c1f31;
+    transition: all 0.4s ease-in;
+    transition: opacity ease-in;
+}
+.contact-link:hover {
+    background-color: rgb(15, 15, 15);
+    padding-left: 40px;
+    border-color: rgb(165, 99, 13);
+    transition: all 0.4s ease-in-out;
+}
+
+span.contact-value {
+    float: right;
+    color: transparent;
+    transition: padding 0.4s ease-in-out;
+    font-family: 'Fira Mono';
+}
+.contact-link:hover .contact-value {
+    text-shadow: 0 0 0px darkrgb(165, 99, 13);
+    color: rgb(165, 99, 13);
+    transition: all 0.4s ease-in-out;
+    
+}
+/* ****************************************************** FOOTER [SECTION] */
+.section.contact {
+    background-color: #1c1f31;
+}
+.section.copyright-footer {
+    color: rgb(183, 183, 183);
+    text-align: center;
+    font-family: 'Fira Mono';
+    height: 30px;
+    padding: 10px 0;
+    margin: 0;
+    letter-spacing: 2px;
+    font-size: 14px;
+    line-height: 30px;
+    border: 0;
+}
+.section.copyright-footer p {
+    margin: 0;
+}
+.gold {
+    color: rgb(165, 99, 13);
+}
+/* SVG ::BEFORE */
+.contact-link::before {
+    color: rgb(165, 99, 13);
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    margin-right: 15px;
+}
+.contact-link:hover::before {
+    opacity: 1;
+}
+.mail::before {
+    content: url('./svg/mail.svg');
+}
+.linkedin::before {
+    content: url('./svg/linkedin.svg');
+}
+.github::before {
+    content: url('./svg/github.svg');
+}
+
+/* ****************************************************** EFFECTS */
+/* FLASHING CURSOR */
+@keyframes cursorFlash {
+    0%,
+    50%,
+    100% {opacity: 1;}
+    25%,
+    75% {opacity: 0;}
+}
+.my-works.section:hover .section-title:after,
+.contact:hover .section-title:after {
+    content: '_';
+    animation: cursorFlash 2s infinite;
+}
+
+/* UNDERLINE ANIMATION */
+
+.header-button:hover::before ,
+.project-wrapper:hover .project-title::before {
+    width: 100%;
+    background-color: rgb(165, 99, 13);
+}
+
+/* SCROLLBAR */
+#root::-webkit-scrollbar {
+    width: 5px;
+    transition: scroll 0.3s ease-out;
+}
+
+#root::-webkit-scrollbar-thumb {
+    background-color: rgb(15, 15, 15);
+}
+
+#root::-webkit-scrollbar-track {
+    background-color: rgb(15, 15, 15);
+}
+
+#root::-webkit-scrollbar-button {
+    display: none;
+}
+#root {
+    scroll-behavior: smooth;
+}
