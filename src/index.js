@@ -3,10 +3,10 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import reportWebVitals from "./reportWebVitals";
-import Portfolio from "./pages/Portfolio/index";
-import TaskList from "./pages/TaskList/index";
-import Shop from "./pages/Shop/index";
-import ErrorPage from "./pages/NotFound/index";
+import Portfolio from "./pages/Portfolio";
+import TaskList from "./pages/TaskList";
+// import Shop from "./pages/Shop";
+import ErrorPage from "./pages/NotFound";
 
 import "./index.css";
 
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/store",
-    element: <Shop />,
+    // element: <Shop />,
   },
 ]);
 

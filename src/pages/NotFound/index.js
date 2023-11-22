@@ -8,10 +8,10 @@ const ErrorPage = () => {
 
   return (
     <div id="error-page">
-      <h1 className="notfoundtitle">Where are you heading to?</h1>
-      <img src={imageNotFound} className="notfoundimg"></img>
-      <p className="notfoundtext">Sorry, but this path leads to nowhere.</p>
-      <p className="notfoundtext">
+      <h1 className="not-found-title">Where are you heading to?</h1>
+      <img src={imageNotFound} className="not-found-img"></img>
+      <p className="not-found-text">Sorry, but this path leads to nowhere.</p>
+      <p className="not-found-text">
         <i>{error.statusText || error.message}</i>
       </p>
     </div>

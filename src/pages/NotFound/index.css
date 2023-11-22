@@ -1,4 +1,4 @@
-img.notfoundimg {
+img.not-found-img {
     max-width: 100%;
 }
 
@@ -14,13 +14,13 @@ div#error-page {
     font-family: 'Fira Mono';
 }
 
-h1.notfoundtitle {
+h1.not-found-title {
     margin-bottom: 30px;
     display: block;
     font-family: 'Fira Mono';
 }
 
-p.notfoundtext {
+p.not-found-text {
     font-family: 'Fira Mono';
     margin-top: 30px;
 }
