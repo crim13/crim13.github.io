@@ -171,7 +171,6 @@ input.search-input {
     height: 30px;
     overflow: hidden;
     display: inline-block;
-    float: right;
 }
 img.view-list,
 img.view-grid {

@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import Portfolio from "./pages/portfolio/index";
 import TaskList from "./pages/task-list/TaskList";
+import Store from "./pages/store/index";
 import ErrorPage from "./pages/portfolio/NotFound";
 
 import "./index.css";
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/store",
+    element: <Store />,
   },
 ]);
 
