@@ -10,7 +10,7 @@ const projects = [
   },
   {
     key: 2,
-    title: "Weather App",
+    title: "Store",
     description:
       "Dynamic React Weather App providing real-time weather updates. Engage with an intuitive interface, track weather conditions, and access accurate forecasts for a personalized and responsive weather experience.",
     language: "React.js",

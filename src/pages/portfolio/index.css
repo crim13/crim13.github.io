@@ -183,18 +183,21 @@ img.view-grid {
 /* FILES STYLE */
 .project-wrapper {
     margin-bottom: 30px;
+    margin-right: 0;
     background-color: rgb(15, 15, 15);
     border-radius: 10px;
     cursor: pointer;
     overflow: hidden;
     box-sizing: border-box;
-    border: 2px solid rgb(165, 99, 13);
+    border: 2px solid;
+    border-color: #a5630d00;    
     position: relative;
     box-shadow: 0px 0px 0px 1px rgb(183, 183, 183);
     transition: all 0.1s ease-in-out;
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    width: 100%;
 }
 .project-icon {
     width: 150px;
@@ -336,13 +339,13 @@ span.contact-value {
     opacity: 1;
 }
 .mail::before {
-    content: url('../svg/mail.svg');
+    content: url('../../svg/mail.svg');
 }
 .linkedin::before {
-    content: url('../svg/linkedin.svg');
+    content: url('../../svg/linkedin.svg');
 }
 .github::before {
-    content: url('../svg/github.svg');
+    content: url('../../svg/github.svg');
 }
 
 /* ****************************************************** EFFECTS */
@@ -387,4 +390,59 @@ span.contact-value {
 }
 #root {
     scroll-behavior: smooth;
+}
+
+
+/* ================================================================= */
+.mobile .toggle-view-wrapper {
+    display: none;
+}
+
+.grid .project-wrapper {
+    width: 46%;
+    margin-right: 2%;
+
+}
+
+.grid .view-list,
+.list .view-grid {
+    display: none;
+}
+
+.active {
+    border-color: #a5630d;
+}
+.list .active .project-title {
+    margin-top: 30px;
+}
+.active .project-title {
+    border-bottom: 2px solid #a5630d;
+}
+
+
+img.notfoundimg {
+    max-width: 100%;
+}
+
+div#error-page {
+    max-width: 60%;
+    margin: 30px auto;
+}
+
+div#error-page {
+    max-width: 60%;
+    margin: 30px auto;
+    color: aliceblue;
+    font-family: 'Fira Mono';
+}
+
+h1.notfoundtitle {
+    margin-bottom: 30px;
+    display: block;
+    font-family: 'Fira Mono';
+}
+
+p.notfoundtext {
+    font-family: 'Fira Mono';
+    margin-top: 30px;
 }

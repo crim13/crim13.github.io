@@ -3,10 +3,9 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import reportWebVitals from "./reportWebVitals";
-import Portfolio from "./portfolio/Portfolio";
-import TaskList from "./pages/TaskList";
-import AddToCard from "./pages/AddToCart";
-import ErrorPage from "./pages/NotFound";
+import Portfolio from "./pages/portfolio/index";
+import TaskList from "./pages/task-list/TaskList";
+import ErrorPage from "./pages/portfolio/NotFound";
 
 import "./index.css";
 
@@ -22,7 +21,9 @@ const router = createBrowserRouter([
   },
   {
     path: "/addtocart",
-    element: <AddToCard />,
+  },
+  {
+    path: "/store",
   },
 ]);
 

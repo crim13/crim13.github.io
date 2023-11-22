@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import logo from "../images/logo.png";
+import logo from "../../images/logo.png";
 import "./TaskList.css";
 
 const initialTasks = [
@@ -16,7 +16,7 @@ const dateFormat = (task) => {
   return `Date added: ${day}.${month}.${year}`;
 };
 
-export default function TaskList() {
+const TaskList = () => {
   const [tasks, setTasks] = useState(initialTasks);
   const [input, setInput] = useState("");
 
@@ -87,4 +87,5 @@ export default function TaskList() {
       </div>
     </div>
   );
-}
+};
+export default TaskList;

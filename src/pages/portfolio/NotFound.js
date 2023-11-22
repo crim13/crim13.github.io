@@ -1,8 +1,7 @@
 import { useRouteError } from "react-router-dom";
-import imageNotFound from "../images/404.png";
-import "./NotFound.css";
+import imageNotFound from "../../images/404.png";
 
-export default function ErrorPage() {
+const ErrorPage = () => {
   const error = useRouteError();
   console.error(error);
 
@@ -16,4 +15,6 @@ export default function ErrorPage() {
       </p>
     </div>
   );
-}
+};
+
+export default ErrorPage;
