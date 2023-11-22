@@ -4,21 +4,20 @@ import image from "../image.png";
 import pdfSvg from "../svg/attachment.svg";
 import hireSvg from "../svg/hire.svg";
 
-export default function Header() {
-  const name = "Hi! I'm Crim_";
-  const title = "Front End Developer";
-  const description =
-    "Experienced front-end web developer with expertise in React.js, dedicated to creating engaging and responsive web applications for optimal user experiences.";
-
+const Header = () => {
   return (
     <div className="header">
       <div className="about-meta">
         <div className="meta-wrapper">
-          <h1 id="name">{name}</h1>
+          <h1 id="name">Hi! I'm Crim_</h1>
           <br />
-          <h2 id="title">{title}</h2>
+          <h2 id="title">Front End Developer</h2>
           <br />
-          <p id="description">{description}</p>
+          <p id="description">
+            Experienced front-end web developer with expertise in React.js,
+            dedicated to creating engaging and responsive web applications for
+            optimal user experiences.
+          </p>
           <div className="buttons">
             <button
               className="download-cv header-button"
@@ -40,4 +39,6 @@ export default function Header() {
       </div>
     </div>
   );
-}
+};
+
+export default Header;

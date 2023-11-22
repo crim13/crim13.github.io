@@ -336,13 +336,13 @@ span.contact-value {
     opacity: 1;
 }
 .mail::before {
-    content: url('./svg/mail.svg');
+    content: url('../svg/mail.svg');
 }
 .linkedin::before {
-    content: url('./svg/linkedin.svg');
+    content: url('../svg/linkedin.svg');
 }
 .github::before {
-    content: url('./svg/github.svg');
+    content: url('../svg/github.svg');
 }
 
 /* ****************************************************** EFFECTS */

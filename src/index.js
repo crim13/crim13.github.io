@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import reportWebVitals from "./reportWebVitals";
-import Portfolio from "./Portfolio";
+import Portfolio from "./portfolio/Portfolio";
 import TaskList from "./pages/TaskList";
 import AddToCard from "./pages/AddToCart";
 import ErrorPage from "./pages/NotFound";

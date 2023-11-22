@@ -6,37 +6,35 @@ import { useNavigate } from "react-router-dom";
 import WebFont from "webfontloader";
 
 //_______________________________________________________[ IMPORT COMPONENTS ]
-import Footer from "./components/Footer.js";
-import Header from "./components/Header.js";
+import Footer from "./Footer.js";
+import Header from "./Header.js";
 
 import projects from "./projects.js";
 
 //_______________________________________________________[ IMPORT STYLES ]
-import reactApp from "./svg/reactApp.svg";
-import viewGrid from "./svg/viewGrid.svg";
-import viewList from "./svg/viewList.svg";
-import "./Portfolio.css";
+import reactApp from "../svg/reactApp.svg";
+import viewGrid from "../svg/gridsort.svg";
+import viewList from "../svg/listsort.svg";
+import "../portfolio/Portfolio.css";
 
 //_______________________________________________________[ COMPONENT START ]
-export default function Portfolio() {
+const Portfolio = () => {
+  const navigate = useNavigate();
   //_______________________________________________________[ useState ]
   const [activeProject, setActiveProject] = useState("");
-  const [gridList, setGridList] = useState();
+  const [isGrid, setIsGrid] = useState(true);
   const [isMobile, setIsMobile] = useState();
   const [description, setDescription] = useState("");
 
   //_______________________________________________________[ helpers ]
-  const onProjectOnClick = (title, description) => {
+  const onProjectClick = (title, description) => {
     setActiveProject(title);
     setDescription(description);
   };
   const onToggleViewType = () => {
-    gridList === "grid" ? setGridList("list") : setGridList("grid");
-    console.log(gridList);
+    setIsGrid(!isGrid);
   };
-  const navigate = useNavigate();
   const onDblClick = (title) => () => {
-    setActiveProject(title);
     navigate(`/${title.split(" ").join("")}`);
   };
 
@@ -52,7 +50,7 @@ export default function Portfolio() {
     };
   }, []);
   useEffect(() => {
-    isMobile ? setGridList("list") : setGridList("grid");
+    setIsGrid(isMobile);
   }, [isMobile]);
   useEffect(() => {
     WebFont.load({
@@ -60,7 +58,7 @@ export default function Portfolio() {
         families: ["Fira Mono", "Nunito"],
       },
     });
-  });
+  }, []);
   //____________________________________________________________[ RETURN START ]
   return (
     <>
@@ -69,7 +67,7 @@ export default function Portfolio() {
       <div className="page">
         <div className="my-works section">
           <div className="section-header">
-            {activeProject !== "" && gridList === "grid" ? (
+            {activeProject !== "" && isGrid ? (
               <div className="project-description-big">
                 <p>{description}</p>
               </div>
@@ -87,7 +85,7 @@ export default function Portfolio() {
                 src={viewGrid}
                 onClick={onToggleViewType}
                 style={{
-                  display: gridList === "grid" ? "none" : "inline",
+                  display: isGrid ? "none" : "inline",
                 }}
               ></img>
               <img
@@ -95,7 +93,7 @@ export default function Portfolio() {
                 src={viewList}
                 onClick={onToggleViewType}
                 style={{
-                  display: gridList === "list" ? "none" : "inline",
+                  display: isGrid ? "none" : "inline",
                 }}
               ></img>
             </div>
@@ -106,12 +104,12 @@ export default function Portfolio() {
                   id={project.key}
                   key={project.key}
                   onClick={() =>
-                    onProjectOnClick(project.title, project.description)
+                    onProjectClick(project.title, project.description)
                   }
                   onDoubleClick={onDblClick(project.title)}
                   style={{
-                    width: gridList === "grid" ? "46%" : "100%",
-                    marginRight: gridList === "grid" ? "2%" : "0",
+                    width: isGrid ? "46%" : "100%",
+                    marginRight: isGrid ? "2%" : "0",
                     borderColor:
                       activeProject === project.title ? "#a5630d" : "#a5630d00",
                   }}
@@ -122,7 +120,7 @@ export default function Portfolio() {
                       className="project-title default-meta"
                       style={{
                         marginTop:
-                          activeProject === project.title && gridList === "list"
+                          activeProject === project.title && !isGrid
                             ? "30px"
                             : "0",
                         borderBottom:
@@ -136,7 +134,7 @@ export default function Portfolio() {
                     <p className="project-language default-meta">
                       FileType: {project.language}
                     </p>
-                    {gridList === "list" && activeProject === project.title ? (
+                    {!isGrid && activeProject === project.title ? (
                       <div className="project-description-container">
                         <p className="project-description default-meta">
                           {project.description}
@@ -153,4 +151,6 @@ export default function Portfolio() {
       </div>
     </>
   );
-}
+};
+
+export default Portfolio;
