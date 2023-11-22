@@ -13,8 +13,8 @@ import projects from "./projects.js";
 
 //_______________________________________________________[ IMPORT STYLES ]
 import reactApp from "../svg/reactApp.svg";
-import viewGrid from "../svg/gridsort.svg";
-import viewList from "../svg/listsort.svg";
+import viewGrid from "../svg/viewGrid.svg";
+import viewList from "../svg/viewList.svg";
 import "../portfolio/Portfolio.css";
 
 //_______________________________________________________[ COMPONENT START ]
@@ -93,7 +93,7 @@ const Portfolio = () => {
                 src={viewList}
                 onClick={onToggleViewType}
                 style={{
-                  display: isGrid ? "none" : "inline",
+                  display: !isGrid ? "none" : "inline",
                 }}
               ></img>
             </div>
