@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import logo from "../../images/logo.png";
-import "./TaskList.css";
+import logo from "./logo.png";
+import "./index.css";
 
 const initialTasks = [
   { task: "Do groceries", isDone: false, date: new Date() },

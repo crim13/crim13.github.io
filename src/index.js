@@ -3,10 +3,10 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import reportWebVitals from "./reportWebVitals";
-import Portfolio from "./pages/portfolio/index";
-import TaskList from "./pages/task-list/TaskList";
-import Store from "./pages/store/index";
-import ErrorPage from "./pages/portfolio/NotFound";
+import Portfolio from "./pages/Portfolio/index";
+import TaskList from "./pages/TaskList/index";
+import Shop from "./pages/Shop/index";
+import ErrorPage from "./pages/NotFound/index";
 
 import "./index.css";
 
@@ -22,10 +22,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/addtocart",
+    // element: <Shop />,
   },
   {
     path: "/store",
-    element: <Store />,
+    element: <Shop />,
   },
 ]);
 

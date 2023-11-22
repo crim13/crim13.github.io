@@ -9,9 +9,10 @@ import WebFont from "webfontloader";
 import projects from "./projects.js";
 
 //_______________________________________________________[ IMPORT STYLES ]
-import reactApp from "../../svg/reactApp.svg";
-import viewGrid from "../../svg/viewGrid.svg";
-import viewList from "../../svg/viewList.svg";
+import reactApp from "./reactApp.svg";
+import viewGrid from "./viewGrid.svg";
+import viewList from "./viewList.svg";
+import "./index.css";
 
 //_______________________________________________________[ COMPONENT START ]
 const MyWork = () => {

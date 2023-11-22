@@ -1,3 +1,5 @@
+import "./index.css";
+
 const Footer = () => (
   <>
     <div className="contact section">

@@ -1,8 +1,10 @@
 import React from "react";
 
-import image from "../../images/image.png";
-import pdfSvg from "../../svg/attachment.svg";
-import hireSvg from "../../svg/hire.svg";
+import image from "./image.png";
+import pdfSvg from "./attachment.svg";
+import hireSvg from "./hire.svg";
+
+import "./index.css";
 
 const Header = () => (
   <div className="header">

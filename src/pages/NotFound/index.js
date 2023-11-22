@@ -1,5 +1,6 @@
 import { useRouteError } from "react-router-dom";
-import imageNotFound from "../../images/404.png";
+import imageNotFound from "./404.png";
+import "./index.css";
 
 const ErrorPage = () => {
   const error = useRouteError();

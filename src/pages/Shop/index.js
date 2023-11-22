@@ -1,15 +1,15 @@
 import React from "react";
 
 import Home from "./pages/Home";
-import Header from "./components/Header";
+import Header from "./Header/index";
 
 import "./index.css";
 
-const Store = () => (
+const Shop = () => (
   <>
     <Header />
     <Home />
   </>
 );
 
-export default Store;
+export default Shop;
