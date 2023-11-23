@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import Portfolio from "./pages/Portfolio";
 import TaskList from "./pages/TaskList";
-// import Shop from "./pages/Shop";
+import Shop from "./pages/Shop";
 import ErrorPage from "./pages/NotFound";
 
 import "./index.css";
@@ -25,8 +25,8 @@ const router = createBrowserRouter([
     // element: <Shop />,
   },
   {
-    path: "/store",
-    // element: <Shop />,
+    path: "/shop",
+    element: <Shop />,
   },
 ]);
 
