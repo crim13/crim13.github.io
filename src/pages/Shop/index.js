@@ -29,7 +29,11 @@ const Shop = () => {
     <>
       <Header onMenuClick={(category) => setCurrentCategory(category)} />
       {currentCategory !== "" ? (
-        <CategoryPage products={products} category={currentCategory} />
+        <CategoryPage
+          currProducts={products}
+          currCategory={currentCategory}
+          onProductClick={(currProduct) => setCurrentProduct(currProduct)}
+        />
       ) : (
         <ProductPage products={currentProduct} category={currentCategory} />
       )}
