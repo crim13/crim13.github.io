@@ -56,7 +56,7 @@ button.shop-product-buy-now:hover {
     box-shadow: none;
 }
 .shop-product-slider {
-    /* background-image: url('../Home/product2.png'); */
+    background-image: url('../Home/product2.png');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;

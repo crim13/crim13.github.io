@@ -45,9 +45,10 @@ const Header = ({ onMenuClick }) => {
         </div>
         <div className={`shop-menu-drop-down`}>
           <div className="shop-menu-drop-list">
-            {categories.map((category, index) => (
+            {categories.map((category, key) => (
               <span
-                className={`shop-menu-drop-item shop-cat-${index}`}
+                key={key}
+                className={`shop-menu-drop-item shop-cat-${key}`}
                 onClick={() => onMenuClick(category)}
               >
                 {category}

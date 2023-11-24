@@ -9,12 +9,9 @@ const ProductSlider = ({ currCategory, currProducts, onProductClick }) => {
     console.log(currProducts);
     setSliderNavigate(!sliderNavigate);
   };
-  // const onProductClick = (prod) => {
-  //   console.log(prod);
-  // };
   useEffect(() => {
     setProducts(currProducts);
-    console.log(currProducts);
+    // console.log(currProducts);
   }, [currProducts]);
   return (
     <div className="shop-second-section">
@@ -25,19 +22,18 @@ const ProductSlider = ({ currCategory, currProducts, onProductClick }) => {
             sliderNavigate ? "slide1" : "slide2"
           }`}
         >
-          {/* {products.map((product) => (
+          {products.map((product) => (
             <div
               className="shop-featured-items"
               style={{ backgroundImage: `url(${product.thumbnail})` }}
               onClick={() => onProductClick(product)}
-              // onClick={onProductClick(product.title)}
             >
               <div className="shop-category-product-meta">
                 <p className="shop-featured-name">{product.title}</p>
                 <p className="shop-featured-price">${product.price}</p>
               </div>
             </div>
-          ))} */}
+          ))}
         </div>
       </div>
       <div className="shop-featured-arrow" onClick={onNextProducts}></div>
