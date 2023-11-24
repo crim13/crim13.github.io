@@ -17,6 +17,7 @@
     line-height: 64px;
     display: flex;
     justify-content: flex-end;
+    z-index: 3;
 }
 .shop-menu-second {
     width: fit-content;
@@ -77,27 +78,10 @@ ul.shop-menu-drop-list {
     padding: 30px;
     border-radius: 0 0 10px 10px;
     display: block;
-    /* display: none; */
 }
-.shop-menu-drop-down {
-    overflow: hidden;
-    transition: all 0.4s ease-in-out;
-    height: -moz-fit-content;
-    height: fit-content;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50px;
-    text-align: center;
-    display: block;
-    opacity: 0;
-    z-index: -1;
-}
-.active.shop-menu-drop-down {
-    /* display: block; */
+.open .shop-menu-drop-down {
     opacity: 1;
-    top: 90px;
+    top: 0;
     z-index: 2;
 }
 span.shop-menu-drop-item {
@@ -105,9 +89,13 @@ span.shop-menu-drop-item {
     padding: 15px;
     cursor: pointer;
     font-size: 14px;
+    margin-right: 25%;
+    text-transform: capitalize;
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
 }
 span.shop-menu-drop-item:hover {
-    font-size: 16px;
+    font-size: 26px;
 }
 input.shop-header-search {
     height: 33px;
@@ -125,4 +113,54 @@ input.active.shop-header-search {
     border: 2px solid #000;
     padding: 0 20px;
     width: 150px;
+}
+
+
+.closed .shop-menu-burger span {
+    background-image: url("./menuclosed.svg");
+}
+.open .shop-menu-burger span {
+    background-image: url("./menuopen.svg");
+}
+.shop-menu-burger span.shop-menu-icon {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    width: 50px;
+    height: 100%;
+}
+.shop-menu-burger {
+    height: 100%;
+    width: 64px;
+    cursor: pointer;
+}
+
+.shop-menu-drop-down {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 0vw;
+    transition: all 0.4s ease-in-out;
+}
+.open .shop-menu-drop-down {
+    width: 50vw;
+}
+.open .shop-menu-drop-list {
+    box-shadow: 0px 0px 200px 100px #000000d9;
+}
+.shop-menu-drop-list {
+    overflow: hidden;
+    height: calc(100vh - 100px);
+    display: flex;
+    background: #fff;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: flex-end;
+    justify-content: space-evenly;
+    padding-top: 100px;
+    align-items: flex-end;
+    box-shadow: 0px 0px 20px 20px #0000;
+    transition: all 0.4s ease-in-out;
 }

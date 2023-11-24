@@ -1,23 +1,38 @@
 import React, { useEffect, useState } from "react";
 
-import Home from "./pages/Home";
+import axios from "axios";
+
 import Header from "./Header";
-import AboutUs from "./pages/AboutUs";
-import Contact from "./pages/Contact";
 import ProductPage from "./pages/ProductPage";
+import CategoryPage from "./pages/CategoryPage";
 
 import "./index.css";
 
 const Shop = () => {
-  const [currentPage, setCurrentPage] = useState(-3);
+  const [currentCategory, setCurrentCategory] = useState("laptops");
+  const [products, setProducts] = useState([]);
+  // const [currentProduct, setCurrentProduct] = useState("");
+  const [currentProduct, setCurrentProduct] = useState("1");
+
+  // useEffect(() => {
+  //   setCurrentProduct(products[0]);
+  // }, []);
+  useEffect(() => {
+    axios
+      .get(`https://dummyjson.com/products/category/${currentCategory}`)
+      .then((response) => {
+        setProducts(response.data.products);
+        // console.log(response.data.products);
+      });
+  }, [currentCategory]);
   return (
     <>
-      <Header />
-      {currentPage === -1 ? <Home /> : null}
-      {currentPage === -2 ? <AboutUs /> : null}
-      {currentPage === -3 ? <Contact /> : null}
-      {currentPage === -4 ? <AboutUs /> : null}
-      {currentPage === -5 ? <ProductPage /> : null}
+      <Header onMenuClick={(category) => setCurrentCategory(category)} />
+      {currentCategory !== "" ? (
+        <CategoryPage products={products} category={currentCategory} />
+      ) : (
+        <ProductPage products={currentProduct} category={currentCategory} />
+      )}
     </>
   );
 };

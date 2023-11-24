@@ -1,43 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
+import axios from "axios";
+
 import logo from "./logo.png";
 import "./index.css";
 
-const Header = () => {
+const Header = ({ onMenuClick }) => {
   const [isActive, setIsActive] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
-  const onNavigate = (i) => () => {
-    // console.log(page);
-  };
+  const [categories, setCategories] = useState([]);
   const onDropDown = () => {
     setIsActive(!isActive);
-    console.log(isActive);
   };
   const onSearch = () => {
     setIsSearching(!isSearching);
-    console.log(isSearching);
   };
+  useEffect(() => {
+    axios.get("https://dummyjson.com/products/categories").then((response) => {
+      setCategories(response.data.splice(0, 6));
+    });
+    // .catch(err => console.error(err));
+  }, []);
   return (
     <div className="shop-header">
-      <div className="shop-nav-bar">
+      <div className={`shop-nav-bar ${isActive ? "open" : "closed"}`}>
         <div className="shop-logo-wrapper">
           <img src={logo} className="shop-logo" />
         </div>
         <div className="shop-menu-wrapper">
-          <div className="shop-menu-item" onClick={onNavigate(-1)}>
-            Home
-          </div>
-          <div className={`shop-menu-item`} onClick={onDropDown}>
-            Categories
-          </div>
-          <div className="shop-menu-item" onClick={onNavigate(-2)}>
-            Ablout Us
-          </div>
-          <div className="shop-menu-item" onClick={onNavigate(-3)}>
-            Contact
-          </div>
-          <div className="shop-menu-cart">
-            <span className="cart-svg"></span>
-          </div>
           <div className="shop-menu-search">
             <input
               type="text"
@@ -46,15 +36,23 @@ const Header = () => {
             />
             <span className="search-svg" onClick={onSearch}></span>
           </div>
-          <div className={`shop-menu-drop-down ${isActive ? "active" : null}`}>
-            <div className="shop-menu-drop-list">
-              <span className="shop-menu-drop-item">Category 1</span>
-              <span className="shop-menu-drop-item">Category 2</span>
-              <span className="shop-menu-drop-item">Category 3</span>
-              <span className="shop-menu-drop-item">Category 4</span>
-              <span className="shop-menu-drop-item">Category 5</span>
-              <span className="shop-menu-drop-item">Category 6</span>
-            </div>
+          <div className="shop-menu-cart">
+            <span className="cart-svg"></span>
+          </div>
+          <div className="shop-menu-burger" onClick={onDropDown}>
+            <span className="shop-menu-icon"></span>
+          </div>
+        </div>
+        <div className={`shop-menu-drop-down`}>
+          <div className="shop-menu-drop-list">
+            {categories.map((category, index) => (
+              <span
+                className={`shop-menu-drop-item shop-cat-${index}`}
+                onClick={() => onMenuClick(category)}
+              >
+                {category}
+              </span>
+            ))}
           </div>
         </div>
       </div>
