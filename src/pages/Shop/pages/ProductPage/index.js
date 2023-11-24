@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 import "./index.css";
 
 const ProductPage = ({
-  products,
   currCategory,
   currProduct,
   onPageNavigationBack,
   onPageNavigationNext,
+  onAddToCard,
 }) => (
   <div className="shop-product-page">
     <div
@@ -34,7 +34,9 @@ const ProductPage = ({
           <button className="shop-product-page-qty-plus">+</button>
         </div>
         <div className="shop-product-buttons">
-          <button className="shop-product-add-to-cart">ADD TO CART</button>
+          <button className="shop-product-add-to-cart" onClick={onAddToCard}>
+            ADD TO CART
+          </button>
           <button className="shop-product-buy-now">BUY NOW</button>
         </div>
         <div className="shop-product-page-navigation">

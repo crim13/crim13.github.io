@@ -6,6 +6,7 @@ const CategoryPage = ({ currCategory, currProducts, onProductPage }) => {
   const [sliderNavigate, setSliderNavigate] = useState(true);
   const onNextProducts = () => {
     setSliderNavigate(!sliderNavigate);
+    console.log(currProducts);
   };
   return (
     <>

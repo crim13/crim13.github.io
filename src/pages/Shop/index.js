@@ -19,6 +19,8 @@ const Shop = () => {
 
   const [currentProductId, setCurrentProductId] = useState(0);
 
+  const [cartItems, setCartItems] = useState([]);
+
   const nextProduct = products.find(
     (product) => product.id === currentProductId + 1
   );
@@ -54,6 +56,7 @@ const Shop = () => {
       <Header
         categories={categories}
         currentCategory={currentCategory}
+        cartItems={cartItems}
         onMenuClick={(category) => {
           setCurrentCategory(category);
           setProductPage(false);
@@ -72,7 +75,9 @@ const Shop = () => {
         <ProductPage
           currProduct={currentProduct}
           currCategory={currentCategory}
-          products={products}
+          onAddToCard={() => {
+            setCartItems([...cartItems, currentProduct]);
+          }}
           onPageNavigationBack={() => {
             setCurrentProductId(currentProduct.id);
             if (prevProduct) {
