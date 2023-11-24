@@ -1,26 +1,20 @@
 import React, { useState, useEffect } from "react";
 
-import axios from "axios";
-
 import logo from "./logo.png";
 import "./index.css";
 
-const Header = ({ onMenuClick }) => {
+const Header = ({ categories, currentCategory, onMenuClick }) => {
   const [isActive, setIsActive] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
-  const [categories, setCategories] = useState([]);
+
   const onDropDown = () => {
     setIsActive(!isActive);
   };
   const onSearch = () => {
     setIsSearching(!isSearching);
+    console.log(categories);
   };
-  useEffect(() => {
-    axios.get("https://dummyjson.com/products/categories").then((response) => {
-      setCategories(response.data.splice(0, 6));
-    });
-    // .catch(err => console.error(err));
-  }, []);
+
   return (
     <div className="shop-header">
       <div className={`shop-nav-bar ${isActive ? "open" : "closed"}`}>
@@ -45,7 +39,7 @@ const Header = ({ onMenuClick }) => {
         </div>
         <div className={`shop-menu-drop-down`}>
           <div className="shop-menu-drop-list">
-            {categories.map((category, key) => (
+            {/* {categories.map((category, key) => (
               <span
                 key={key}
                 className={`shop-menu-drop-item shop-cat-${key}`}
@@ -53,7 +47,7 @@ const Header = ({ onMenuClick }) => {
               >
                 {category}
               </span>
-            ))}
+            ))} */}
           </div>
         </div>
       </div>

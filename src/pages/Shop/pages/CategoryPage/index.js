@@ -4,23 +4,6 @@ import "./index.css";
 import ProductSlider from "../../ProductSlider";
 
 const CategoryPage = ({ currCategory, currProducts, onProductPage }) => {
-  const [selectedCategory, setSelectedCategory] = useState("laptops");
-  const [currentProduct, setCurrentProduct] = useState([]);
-  const onNextProducts = () => {
-    console.log(currCategory);
-  };
-  useEffect(() => {
-    onProductPage(currentProduct);
-    // console.log("curr" + currentProduct);
-  }, [currentProduct]);
-  useEffect(() => {
-    if (currCategory !== "") {
-      setSelectedCategory(currCategory);
-    } else {
-      console.log("no name to prop");
-    }
-  }, [currCategory]);
-
   return (
     <>
       <div className="shop-content-wrapper">
@@ -38,8 +21,7 @@ const CategoryPage = ({ currCategory, currProducts, onProductPage }) => {
         <ProductSlider
           currProducts={currProducts}
           currCategory={currCategory}
-          onProductClick={(product) => setCurrentProduct(product)}
-          // onClick={}
+          onProductClick={(product) => console.log(product)}
         />
       </div>
     </>

@@ -7,31 +7,43 @@ import ProductPage from "./pages/ProductPage";
 import CategoryPage from "./pages/CategoryPage";
 
 import "./index.css";
-import ProductSlider from "./ProductSlider";
 
 const Shop = () => {
+  const [categories, setCategories] = useState("");
   const [currentCategory, setCurrentCategory] = useState("laptops");
+
   const [products, setProducts] = useState([]);
   const [currentProduct, setCurrentProduct] = useState();
+
   const [productPage, setProductsPage] = useState(false);
 
   useEffect(() => {
-    console.log("catpage currproduct changes to:" + currentProduct);
+    console.log("Shop currproduct changes to:");
+    console.log(currentProduct);
   }, [currentProduct]);
+
+  // GETS THE CATEGORIES FROM THE API
+  useEffect(() => {
+    axios.get("https://dummyjson.com/products/categories").then((response) => {
+      setCategories(response.data.splice(0, 6));
+    });
+  }, []);
+  // GETS THE PRODUCTS OF SELECTED CATEGORY
   useEffect(() => {
     axios
       .get(`https://dummyjson.com/products/category/${currentCategory}`)
       .then((response) => {
         setProducts(response.data.products);
-        // console.log(
-        //   "response from dummyjson: products by category" +
-        //     response.data.products
-        // );
       });
   }, [currentCategory]);
+
   return (
     <>
-      <Header onMenuClick={(category) => setCurrentCategory(category)} />
+      <Header
+        categories={categories}
+        currentCategory={currentCategory}
+        onMenuClick={(category) => setCurrentCategory(category)}
+      />
       {!productPage ? (
         <CategoryPage
           currCategory={currentCategory}
