@@ -15,11 +15,23 @@ const Shop = () => {
   const [products, setProducts] = useState([]);
   const [currentProduct, setCurrentProduct] = useState({});
 
-  const [productPage, setProductsPage] = useState(false);
+  const [productPage, setProductPage] = useState(false);
+
+  const [currentProductId, setCurrentProductId] = useState(0);
+
+  const nextProduct = products.find(
+    (product) => product.id === currentProductId + 1
+  );
+  const prevProduct = products.find(
+    (product) => product.id === currentProductId - 1
+  );
+
+  const onNextPage = () => {};
 
   useEffect(() => {
+    setCurrentProductId(currentProduct.id);
     console.log("Shop currproduct changes to:");
-    console.log(currentProduct);
+    console.log(currentProduct.title);
   }, [currentProduct]);
 
   // GETS THE CATEGORIES FROM THE API
@@ -44,7 +56,7 @@ const Shop = () => {
         currentCategory={currentCategory}
         onMenuClick={(category) => {
           setCurrentCategory(category);
-          setProductsPage(false);
+          setProductPage(false);
         }}
       />
       {!productPage ? (
@@ -53,7 +65,7 @@ const Shop = () => {
           currProducts={products}
           onProductPage={(currProduct) => {
             setCurrentProduct(currProduct);
-            setProductsPage(true);
+            setProductPage(true);
           }}
         />
       ) : (
@@ -61,6 +73,22 @@ const Shop = () => {
           currProduct={currentProduct}
           currCategory={currentCategory}
           products={products}
+          onPageNavigationBack={() => {
+            setCurrentProductId(currentProduct.id);
+            if (prevProduct) {
+              setCurrentProduct(prevProduct);
+            } else {
+              setProductPage(false);
+            }
+          }}
+          onPageNavigationNext={() => {
+            setCurrentProductId(currentProduct.id);
+            if (nextProduct) {
+              setCurrentProduct(nextProduct);
+            } else {
+              setProductPage(false);
+            }
+          }}
         />
       )}
     </>

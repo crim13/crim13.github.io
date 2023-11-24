@@ -31,6 +31,7 @@ const CategoryPage = ({ currCategory, currProducts, onProductPage }) => {
             >
               {currProducts.map((product) => (
                 <div
+                  key={product.id}
                   className="shop-featured-items"
                   style={{ backgroundImage: `url(${product.thumbnail})` }}
                   onClick={() => onProductPage(product)}

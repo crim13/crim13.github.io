@@ -123,3 +123,29 @@ button.shop-product-page-qty-minus:hover {
     left: 0;
     right: 0;
 }
+button.shop-product-page-next {
+    position: absolute;
+    right: 2%;
+    top: 0;
+    bottom: 0;
+    width: 5%;
+    background-image: url(../CategoryPage/arrow.svg);
+}
+button.shop-product-page-back {
+    position: absolute;
+    left: 2%;
+    top: 0;
+    bottom: 0;
+    width: 5%;
+    background-image: url(arrowback.svg);
+}
+.shop-product-page-navigation button {
+    border: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #0000;
+    cursor: pointer;
+}
+.shop-product-page-navigation button:hover {
+    background-size: contain;
+}
