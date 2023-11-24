@@ -39,15 +39,17 @@ const Header = ({ categories, currentCategory, onMenuClick }) => {
         </div>
         <div className={`shop-menu-drop-down`}>
           <div className="shop-menu-drop-list">
-            {/* {categories.map((category, key) => (
+            {categories.map((category, key) => (
               <span
                 key={key}
-                className={`shop-menu-drop-item shop-cat-${key}`}
+                className={`shop-menu-drop-item ${
+                  category === currentCategory ? "active" : ""
+                }`}
                 onClick={() => onMenuClick(category)}
               >
                 {category}
               </span>
-            ))} */}
+            ))}
           </div>
         </div>
       </div>

@@ -97,6 +97,10 @@ span.shop-menu-drop-item {
 span.shop-menu-drop-item:hover {
     font-size: 26px;
 }
+span.shop-menu-drop-item.active {
+    font-size: 26px;
+    font-weight: 800;
+}
 input.shop-header-search {
     height: 33px;
     background: none;

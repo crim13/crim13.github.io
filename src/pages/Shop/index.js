@@ -9,11 +9,11 @@ import CategoryPage from "./pages/CategoryPage";
 import "./index.css";
 
 const Shop = () => {
-  const [categories, setCategories] = useState("");
+  const [categories, setCategories] = useState([]);
   const [currentCategory, setCurrentCategory] = useState("laptops");
 
   const [products, setProducts] = useState([]);
-  const [currentProduct, setCurrentProduct] = useState();
+  const [currentProduct, setCurrentProduct] = useState({});
 
   const [productPage, setProductsPage] = useState(false);
 
@@ -42,7 +42,10 @@ const Shop = () => {
       <Header
         categories={categories}
         currentCategory={currentCategory}
-        onMenuClick={(category) => setCurrentCategory(category)}
+        onMenuClick={(category) => {
+          setCurrentCategory(category);
+          setProductsPage(false);
+        }}
       />
       {!productPage ? (
         <CategoryPage
@@ -50,11 +53,15 @@ const Shop = () => {
           currProducts={products}
           onProductPage={(currProduct) => {
             setCurrentProduct(currProduct);
-            // setProductsPage(true);
+            setProductsPage(true);
           }}
         />
       ) : (
-        <ProductPage products={currentProduct} category={currentCategory} />
+        <ProductPage
+          currProduct={currentProduct}
+          currCategory={currentCategory}
+          products={products}
+        />
       )}
     </>
   );
