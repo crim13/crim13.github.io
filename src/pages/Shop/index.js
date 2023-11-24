@@ -62,6 +62,7 @@ const Shop = () => {
           setProductPage(false);
         }}
       />
+
       {!productPage ? (
         <CategoryPage
           currCategory={currentCategory}
@@ -77,6 +78,7 @@ const Shop = () => {
           currCategory={currentCategory}
           onAddToCard={() => {
             setCartItems([...cartItems, currentProduct]);
+            console.log(cartItems);
           }}
           onPageNavigationBack={() => {
             setCurrentProductId(currentProduct.id);

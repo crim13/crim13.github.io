@@ -7,13 +7,16 @@ const Header = ({ categories, currentCategory, cartItems, onMenuClick }) => {
   const [isActive, setIsActive] = useState(false);
   const [cartActive, setCartActive] = useState(false);
 
+  const totalPrices = cartItems.reduce((total, item) => {
+    return total + item.price;
+  }, 0);
   const onCartClick = () => {
     setCartActive(!cartActive);
-    console.log(categories);
-    console.log(cartItems);
+    setIsActive(false);
   };
   const onDropDown = () => {
     setIsActive(!isActive);
+    setCartActive(false);
   };
 
   return (
@@ -27,7 +30,7 @@ const Header = ({ categories, currentCategory, cartItems, onMenuClick }) => {
           <img src={logo} className="shop-logo" />
         </div>
         <div className="shop-menu-wrapper">
-          <div className="shop-menu-cart" onClick={onCartClick}>
+          <div className="shop-menu-cart-icon" onClick={onCartClick}>
             <span className="cart-length">{cartItems.length}</span>
             <span className="cart-svg"></span>
           </div>
@@ -43,7 +46,11 @@ const Header = ({ categories, currentCategory, cartItems, onMenuClick }) => {
                 className={`shop-menu-drop-item ${
                   category === currentCategory ? "active" : ""
                 }`}
-                onClick={() => onMenuClick(category)}
+                onClick={() => {
+                  onMenuClick(category);
+                  setIsActive(false);
+                  setCartActive(false);
+                }}
               >
                 {category}
               </span>
@@ -53,16 +60,38 @@ const Header = ({ categories, currentCategory, cartItems, onMenuClick }) => {
         <div className={`shop-menu-cart-drop-down`}>
           <div className="shop-menu-cart-wrapper">
             <div className="shop-menu-cart">
-              {/* {cartItems} */}
-              {/* {cartItems.length > 0
-                ? {
-                    // cartItems.map((item, key) => (
-                    //     <span key={key} className={`shop-menu-cart`}>
-                    //       {item}
-                    //     </span>
-                    // )
-                  }
-                : {}} */}
+              <h1 className="shop-menu-cart-title">Cart</h1>
+              <div className="shop-menu-cart-products">
+                {cartItems.length > 0 ? (
+                  cartItems.map((cartItem) => (
+                    <div className="shop-cart-menu-item">
+                      <span
+                        className="shop-cart-thumbnail"
+                        style={{
+                          backgroundImage: `url(${cartItem.thumbnail})`,
+                        }}
+                      ></span>
+                      <span>{cartItem.title}</span>
+                      <span>${cartItem.price}</span>
+                    </div>
+                  ))
+                ) : (
+                  <p className="shop-cart-empty">Cart Empty</p>
+                )}
+              </div>
+              <div className="shop-cart-totals">
+                <p>Total</p>
+                <p>${totalPrices}</p>
+              </div>
+              <div className="shop-cart-buttons">
+                <button
+                  className="shop-cart-continue"
+                  onClick={() => setCartActive(false)}
+                >
+                  Continue shoping
+                </button>
+                <button className="shop-cart-checkout">Checkout</button>
+              </div>
             </div>
           </div>
         </div>
