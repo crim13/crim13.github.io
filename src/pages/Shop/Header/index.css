@@ -192,11 +192,10 @@ span.cart-length {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
-    align-content: center;
     justify-content: space-between;
-    align-items: center;
     padding-right: 20%;
     padding-left: 5%;
+    align-items: center;
 }
 
 .shop-cart-menu-item span.shop-cart-thumbnail {
@@ -265,4 +264,22 @@ span.cart-length {
 .shop-menu-cart-products::-webkit-scrollbar-thumb {
     background-color: #000;
     border-radius: 5px;
+}
+button.shop-cart-delete-item {
+    border: none;
+    background: none;
+    font-size: 18px;
+    padding: 5px;
+    cursor: pointer;
+}
+button.shop-cart-delete-item:hover {
+    font-size: 22px;
+}
+span.shop-cart-item-title {
+    width: 50%;
+}
+span.shop-cart-item-price ,
+span.shop-cart-item-title ,
+button.shop-cart-delete-item {
+    font-family: 'Poppins', sans-serif;
 }

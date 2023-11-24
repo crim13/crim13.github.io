@@ -3,7 +3,13 @@ import React, { useState, useEffect } from "react";
 import logo from "./logo.png";
 import "./index.css";
 
-const Header = ({ categories, currentCategory, cartItems, onMenuClick }) => {
+const Header = ({
+  categories,
+  currentCategory,
+  cartItems,
+  onMenuClick,
+  onCartItemDelete,
+}) => {
   const [isActive, setIsActive] = useState(false);
   const [cartActive, setCartActive] = useState(false);
 
@@ -71,8 +77,18 @@ const Header = ({ categories, currentCategory, cartItems, onMenuClick }) => {
                           backgroundImage: `url(${cartItem.thumbnail})`,
                         }}
                       ></span>
-                      <span>{cartItem.title}</span>
-                      <span>${cartItem.price}</span>
+                      <span className="shop-cart-item-title">
+                        {cartItem.title}
+                      </span>
+                      <span className="shop-cart-item-price">
+                        ${cartItem.price}
+                      </span>
+                      <button
+                        className="shop-cart-delete-item"
+                        onClick={onCartItemDelete(cartItem)}
+                      >
+                        x
+                      </button>
                     </div>
                   ))
                 ) : (

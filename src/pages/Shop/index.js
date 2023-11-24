@@ -27,13 +27,13 @@ const Shop = () => {
   const prevProduct = products.find(
     (product) => product.id === currentProductId - 1
   );
-
-  const onNextPage = () => {};
+  const onCartDelete = (item) => () => {
+    const cartCopy = cartItems.filter((prod) => prod.id !== item.id);
+    setCartItems(cartCopy);
+  };
 
   useEffect(() => {
     setCurrentProductId(currentProduct.id);
-    console.log("Shop currproduct changes to:");
-    console.log(currentProduct.title);
   }, [currentProduct]);
 
   // GETS THE CATEGORIES FROM THE API
@@ -57,6 +57,7 @@ const Shop = () => {
         categories={categories}
         currentCategory={currentCategory}
         cartItems={cartItems}
+        onCartItemDelete={(item) => onCartDelete(item)}
         onMenuClick={(category) => {
           setCurrentCategory(category);
           setProductPage(false);

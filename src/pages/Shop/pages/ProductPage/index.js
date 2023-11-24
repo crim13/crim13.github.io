@@ -20,7 +20,7 @@ const ProductPage = ({
           <p className="shop-product-page-category">{currCategory}</p>
           <h1 className="shop-product-page-title">{currProduct.title}</h1>
           <p className="shop-product-page-rating">
-            4.5/5*<span> - 15 Reviews</span>
+            {currProduct.rating}/5*<span> - 15 Reviews</span>
           </p>
           <div className="shop-product-options"></div>
           <p className="shop-product-page-description">
