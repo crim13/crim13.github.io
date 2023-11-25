@@ -7,7 +7,8 @@ const ProductPage = ({
   currProduct,
   onPageNavigationBack,
   onPageNavigationNext,
-  onAddToCard,
+  onAddToCart,
+  onQtyChange,
 }) => (
   <div className="shop-product-page">
     <div
@@ -19,9 +20,7 @@ const ProductPage = ({
         <div className="shop-product-page-meta">
           <p className="shop-product-page-category">{currCategory}</p>
           <h1 className="shop-product-page-title">{currProduct.title}</h1>
-          <p className="shop-product-page-rating">
-            {currProduct.rating}/5*<span> - 15 Reviews</span>
-          </p>
+          <p className="shop-product-page-rating">{currProduct.rating}/5</p>
           <div className="shop-product-options"></div>
           <p className="shop-product-page-description">
             {currProduct.description}
@@ -29,12 +28,22 @@ const ProductPage = ({
           <span className="shop-product-page-price">{currProduct.price}$</span>
         </div>
         <div className="shop-product-page-quantity">
-          <button className="shop-product-page-qty-minus">-</button>
-          <p className="shop-product-page-qty-input">0</p>
-          <button className="shop-product-page-qty-plus">+</button>
+          <button
+            className="shop-product-page-qty-minus"
+            onClick={onQtyChange("sub")}
+          >
+            -
+          </button>
+          <p className="shop-product-page-qty-input">{currProduct.quantity}</p>
+          <button
+            className="shop-product-page-qty-plus"
+            onClick={onQtyChange("add")}
+          >
+            +
+          </button>
         </div>
         <div className="shop-product-buttons">
-          <button className="shop-product-add-to-cart" onClick={onAddToCard}>
+          <button className="shop-product-add-to-cart" onClick={onAddToCart}>
             ADD TO CART
           </button>
           <button className="shop-product-buy-now">BUY NOW</button>

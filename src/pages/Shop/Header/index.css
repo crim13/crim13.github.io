@@ -283,3 +283,18 @@ span.shop-cart-item-title ,
 button.shop-cart-delete-item {
     font-family: 'Poppins', sans-serif;
 }
+span.shop-cart-item-quantity {
+    display: contents;
+}
+.shop-cart-operators{
+    font-family: 'Poppins', sans-serif;
+}
+.shop-cart-operators.substract,
+.shop-cart-operators.add {
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.shop-cart-operators.substract:hover,
+.shop-cart-operators.add:hover {
+    font-size: 26px;
+}

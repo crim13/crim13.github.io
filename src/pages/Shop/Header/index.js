@@ -9,6 +9,7 @@ const Header = ({
   cartItems,
   onMenuClick,
   onCartItemDelete,
+  onCartItemQty,
 }) => {
   const [isActive, setIsActive] = useState(false);
   const [cartActive, setCartActive] = useState(false);
@@ -69,8 +70,8 @@ const Header = ({
               <h1 className="shop-menu-cart-title">Cart</h1>
               <div className="shop-menu-cart-products">
                 {cartItems.length > 0 ? (
-                  cartItems.map((cartItem) => (
-                    <div className="shop-cart-menu-item">
+                  cartItems.map((cartItem, key) => (
+                    <div key={key} className="shop-cart-menu-item">
                       <span
                         className="shop-cart-thumbnail"
                         style={{
@@ -79,6 +80,23 @@ const Header = ({
                       ></span>
                       <span className="shop-cart-item-title">
                         {cartItem.title}
+                      </span>
+                      <span className="shop-cart-item-quantity">
+                        <p
+                          className="shop-cart-operators substract"
+                          onClick={onCartItemQty("sub", cartItem)}
+                        >
+                          -
+                        </p>
+                        <p className="shop-cart-operators quantity">
+                          {cartItem.quantity}
+                        </p>
+                        <p
+                          className="shop-cart-operators add"
+                          onClick={onCartItemQty("add", cartItem)}
+                        >
+                          +
+                        </p>
                       </span>
                       <span className="shop-cart-item-price">
                         ${cartItem.price}
