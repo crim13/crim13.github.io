@@ -15,7 +15,7 @@ const Header = ({
   const [cartActive, setCartActive] = useState(false);
 
   const totalPrices = cartItems.reduce((total, item) => {
-    return total + item.price;
+    return total + item.price * item.quantity;
   }, 0);
   const onCartClick = () => {
     setCartActive(!cartActive);
@@ -99,7 +99,7 @@ const Header = ({
                         </p>
                       </span>
                       <span className="shop-cart-item-price">
-                        ${cartItem.price}
+                        ${cartItem.price * cartItem.quantity}
                       </span>
                       <button
                         className="shop-cart-delete-item"
