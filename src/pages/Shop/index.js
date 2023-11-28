@@ -5,8 +5,7 @@ import axios from "axios";
 import Header from "./Header";
 import ProductPage from "./pages/ProductPage";
 import CategoryPage from "./pages/CategoryPage";
-
-import "./index.css";
+import Checkout from "./pages/Checkout";
 
 const Shop = () => {
   // CATEGORIES
@@ -15,34 +14,81 @@ const Shop = () => {
   // PRODUCTS
   const [products, setProducts] = useState([]);
   const [currentProduct, setCurrentProduct] = useState({});
-  const [currentProductId, setCurrentProductId] = useState(0);
-  const [productPage, setProductPage] = useState(false);
+  const [isProductPage, setIsProductPage] = useState(false);
   // CART
   const [cartItems, setCartItems] = useState([]);
   const [quantity, setQuantity] = useState();
+  // CHECKOUT
+  const [isCheckoutPage, setIsCheckoutPage] = useState(false);
 
   // HELPERS
   const nextProduct = products.find(
-    (product) => product.id === currentProductId + 1
+    (product) => product.id === currentProduct.id + 1
   );
   const prevProduct = products.find(
-    (product) => product.id === currentProductId - 1
+    (product) => product.id === currentProduct.id - 1
   );
   const onCartDelete = (item) => () => {
     const cartCopy = cartItems.filter((prod) => prod.id !== item.id);
     setCartItems(cartCopy);
   };
+  const onAddProductToCart = () => {
+    if (cartItems.some((item) => item.id === currentProduct.id)) {
+      const cartItem = cartItems.find((item) => item.id === currentProduct.id);
+      if (currentProduct.quantity !== cartItem.quantity) {
+        cartItem.quantity = currentProduct.quantity;
+      }
+    } else {
+      setCartItems([...cartItems, currentProduct]);
+    }
+  };
+  const onNextProduct = () => {
+    if (prevProduct) {
+      setCurrentProduct(prevProduct);
+    } else {
+      setIsProductPage(false);
+    }
+  };
+  const onPrevProduct = () => {
+    if (nextProduct) {
+      setCurrentProduct(nextProduct);
+    } else {
+      setIsProductPage(false);
+    }
+  };
+  const onProductQtyChange = (value) => {
+    if (value === "add") {
+      setQuantity(() => quantity + 1);
+    } else {
+      if (quantity > 1) {
+        setQuantity(() => quantity - 1);
+      }
+    }
+  };
+  const onCartQtyUpdate = (operator, item) => {
+    const copyCart = cartItems.map((product) => {
+      if (product === item) {
+        return {
+          ...product,
+          quantity:
+            operator === "add"
+              ? product.quantity + 1
+              : product.quantity > 1
+              ? product.quantity - 1
+              : 1,
+        };
+      }
+      return product;
+    });
+    setCartItems(copyCart);
+  };
 
-  // USE EFFECT
-  useEffect(() => {
-    setCurrentProductId(currentProduct.id);
-  }, [currentProduct]);
-  // QUANTITY
+  // QUANTITY UPDATES
   useEffect(() => {
     setQuantity(1);
     const prodWithQuantity = { ...currentProduct, quantity: quantity };
     setCurrentProduct(prodWithQuantity);
-  }, [currentProductId]);
+  }, [currentProduct.id]);
   useEffect(() => {
     const prodWithQuantity = { ...currentProduct, quantity: quantity };
     setCurrentProduct(prodWithQuantity);
@@ -69,36 +115,24 @@ const Shop = () => {
         currentCategory={currentCategory}
         cartItems={cartItems}
         onCartItemDelete={(item) => onCartDelete(item)}
+        onCheckOutPage={(boolean) => setIsCheckoutPage(boolean)}
+        onCartItemQty={(operator, item) => () => {
+          onCartQtyUpdate(operator, item);
+        }}
         onMenuClick={(category) => {
           setCurrentCategory(category);
-          setProductPage(false);
-        }}
-        onCartItemQty={(operator, item) => () => {
-          const copyCart = cartItems.map((product) => {
-            if (product === item) {
-              return {
-                ...product,
-                quantity:
-                  operator === "add"
-                    ? product.quantity + 1
-                    : product.quantity > 1
-                    ? product.quantity - 1
-                    : 1,
-              };
-            }
-            return product;
-          });
-          setCartItems(copyCart);
+          setIsProductPage(false);
         }}
       />
-
-      {!productPage ? (
+      {isCheckoutPage ? (
+        <Checkout cartItems={cartItems} />
+      ) : !isProductPage ? (
         <CategoryPage
           currCategory={currentCategory}
           currProducts={products}
           onProductPage={(currProduct) => {
             setCurrentProduct(currProduct);
-            setProductPage(true);
+            setIsProductPage(true);
           }}
         />
       ) : (
@@ -106,48 +140,10 @@ const Shop = () => {
           currProduct={currentProduct}
           currCategory={currentCategory}
           quantity={quantity}
-          // add to cart button status [Add to cart, Update cart, Inactive]
-          onAddToCart={() => {
-            if (cartItems.some((item) => item.id === currentProduct.id)) {
-              // currentProduct in cart
-              const cartItem = cartItems.find(
-                (item) => item.id === currentProduct.id
-              );
-              // check if quantity is different
-              if (currentProduct.quantity !== cartItem.quantity) {
-                // update cart item quantity
-                cartItem.quantity = currentProduct.quantity;
-              }
-              // else if product not in cart
-            } else {
-              setCartItems([...cartItems, currentProduct]);
-            }
-          }}
-          onPageNavigationBack={() => {
-            setCurrentProductId(currentProduct.id);
-            if (prevProduct) {
-              setCurrentProduct(prevProduct);
-            } else {
-              setProductPage(false);
-            }
-          }}
-          onPageNavigationNext={() => {
-            setCurrentProductId(currentProduct.id);
-            if (nextProduct) {
-              setCurrentProduct(nextProduct);
-            } else {
-              setProductPage(false);
-            }
-          }}
-          onQtyChange={(value) => () => {
-            if (value === "add") {
-              setQuantity(() => quantity + 1);
-            } else {
-              if (quantity > 1) {
-                setQuantity(() => quantity - 1);
-              }
-            }
-          }}
+          onAddToCart={() => onAddProductToCart()}
+          onPageNavigationBack={() => onNextProduct()}
+          onPageNavigationNext={() => onPrevProduct()}
+          onQtyChange={(value) => () => onProductQtyChange(value)}
         />
       )}
     </>

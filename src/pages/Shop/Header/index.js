@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useMemo } from "react";
 
 import logo from "./logo.png";
 import "./index.css";
@@ -10,13 +10,19 @@ const Header = ({
   onMenuClick,
   onCartItemDelete,
   onCartItemQty,
+  onCheckOutPage,
 }) => {
+  const totalPrices = useMemo(
+    () =>
+      cartItems.reduce((total, item) => {
+        return total + item.price * item.quantity;
+      }, 0),
+    [cartItems]
+  );
+
   const [isActive, setIsActive] = useState(false);
   const [cartActive, setCartActive] = useState(false);
 
-  const totalPrices = cartItems.reduce((total, item) => {
-    return total + item.price * item.quantity;
-  }, 0);
   const onCartClick = () => {
     setCartActive(!cartActive);
     setIsActive(false);
@@ -45,7 +51,7 @@ const Header = ({
             <span className="shop-menu-icon"></span>
           </div>
         </div>
-        <div className={`shop-menu-drop-down`}>
+        <div className="shop-menu-drop-down">
           <div className="shop-menu-drop-list">
             {categories.map((category, key) => (
               <span
@@ -57,6 +63,7 @@ const Header = ({
                   onMenuClick(category);
                   setIsActive(false);
                   setCartActive(false);
+                  onCheckOutPage(false);
                 }}
               >
                 {category}
@@ -64,7 +71,7 @@ const Header = ({
             ))}
           </div>
         </div>
-        <div className={`shop-menu-cart-drop-down`}>
+        <div className="shop-menu-cart-drop-down">
           <div className="shop-menu-cart-wrapper">
             <div className="shop-menu-cart">
               <h1 className="shop-menu-cart-title">Cart</h1>
@@ -120,11 +127,22 @@ const Header = ({
               <div className="shop-cart-buttons">
                 <button
                   className="shop-cart-continue"
-                  onClick={() => setCartActive(false)}
+                  onClick={() => {
+                    setCartActive(false);
+                    onCheckOutPage(false);
+                  }}
                 >
                   Continue shoping
                 </button>
-                <button className="shop-cart-checkout">Checkout</button>
+                <button
+                  className="shop-cart-checkout"
+                  onClick={() => {
+                    onCheckOutPage(true);
+                    setCartActive(false);
+                  }}
+                >
+                  Checkout
+                </button>
               </div>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import "./index.css";
 
@@ -6,7 +6,6 @@ const CategoryPage = ({ currCategory, currProducts, onProductPage }) => {
   const [sliderNavigate, setSliderNavigate] = useState(true);
   const onNextProducts = () => {
     setSliderNavigate(!sliderNavigate);
-    console.log(currProducts);
   };
   return (
     <>
