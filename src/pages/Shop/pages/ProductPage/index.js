@@ -8,6 +8,7 @@ const ProductPage = ({
   onPageNavigationBack,
   onPageNavigationNext,
   onAddToCart,
+  onBuyNow,
   onQtyChange,
 }) => (
   <div className="shop-product-page">
@@ -46,7 +47,9 @@ const ProductPage = ({
           <button className="shop-product-add-to-cart" onClick={onAddToCart}>
             ADD TO CART
           </button>
-          <button className="shop-product-buy-now">BUY NOW</button>
+          <button className="shop-product-buy-now" onClick={onBuyNow}>
+            BUY NOW
+          </button>
         </div>
         <div className="shop-product-page-navigation">
           <button

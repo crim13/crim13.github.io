@@ -20,6 +20,7 @@ const Shop = () => {
   const [quantity, setQuantity] = useState();
   // CHECKOUT
   const [isCheckoutPage, setIsCheckoutPage] = useState(false);
+  const [isSuccessful, setIsSuccessful] = useState(false);
 
   // HELPERS
   const nextProduct = products.find(
@@ -83,6 +84,11 @@ const Shop = () => {
     setCartItems(copyCart);
   };
 
+  const onOrderSuccess = () => {
+    setCartItems([]);
+    setIsSuccessful(true);
+  };
+
   // QUANTITY UPDATES
   useEffect(() => {
     setQuantity(1);
@@ -107,6 +113,12 @@ const Shop = () => {
         setProducts(response.data.products);
       });
   }, [currentCategory]);
+  // LEAVE CHECKOUT WHEN CART EMPTY
+  useEffect(() => {
+    if (isCheckoutPage && cartItems.length <= 0 && !isSuccessful) {
+      setIsCheckoutPage(false);
+    }
+  }, [cartItems]);
 
   return (
     <>
@@ -125,7 +137,31 @@ const Shop = () => {
         }}
       />
       {isCheckoutPage ? (
-        <Checkout cartItems={cartItems} />
+        !isSuccessful ? (
+          <Checkout
+            onSuccessful={() => onOrderSuccess()}
+            cartItems={cartItems}
+          />
+        ) : (
+          <div className="shop-checkout-successful-wrapper">
+            <div className="shop-checkout-successful">
+              <h1>Success</h1>
+              <p>
+                Order has been processed, check your email for more information.
+              </p>
+              <button
+                className="shop-succes-continue"
+                onClick={() => {
+                  setIsSuccessful(false);
+                  setIsCheckoutPage(false);
+                  setIsProductPage(false);
+                }}
+              >
+                Continue shopping
+              </button>
+            </div>
+          </div>
+        )
       ) : !isProductPage ? (
         <CategoryPage
           currCategory={currentCategory}
@@ -140,10 +176,14 @@ const Shop = () => {
           currProduct={currentProduct}
           currCategory={currentCategory}
           quantity={quantity}
-          onAddToCart={() => onAddProductToCart()}
           onPageNavigationBack={() => onNextProduct()}
           onPageNavigationNext={() => onPrevProduct()}
           onQtyChange={(value) => () => onProductQtyChange(value)}
+          onAddToCart={() => onAddProductToCart()}
+          onBuyNow={() => {
+            onAddProductToCart();
+            setIsCheckoutPage(true);
+          }}
         />
       )}
     </>
