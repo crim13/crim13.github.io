@@ -10,9 +10,9 @@ const projects = [
   },
   {
     key: 2,
-    title: "Store",
+    title: "Shop",
     description:
-      "Dynamic React Weather App providing real-time weather updates. Engage with an intuitive interface, track weather conditions, and access accurate forecasts for a personalized and responsive weather experience.",
+      "An innovative single-page e-commerce platform crafted with React, offering seamless navigation and a dynamic user interface. Enjoy a streamlined shopping experience with robust functionalities and responsive design.",
     language: "React.js",
     isComponent: false,
     images: [],
