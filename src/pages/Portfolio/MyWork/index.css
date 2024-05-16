@@ -1,162 +1,166 @@
 .projects-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 30px;
 }
 
 input.search-input {
-    font-size: 33px;
-    font-family: "fira mono";
-    border: none;
-    outline: none;
-    color: rgb(183, 183, 183);
-    background: none;
-    position: absolute;
-    left: 0;
-    right: 0;
-    opacity: 0;
+  font-size: 33px;
+  font-family: "fira mono";
+  border: none;
+  outline: none;
+  color: rgb(183, 183, 183);
+  background: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  opacity: 0;
 }
-
+.my-works {
+  background-color: #1c1f31;
+  border-top: 2px solid #a5630d;
+  border-bottom: 2px solid #a5630d;
+}
 /* GRID / LIST */
 .toggle-view-wrapper {
-    height: 30px;
-    overflow: hidden;
-    display: inline-block;
+  height: 30px;
+  overflow: hidden;
+  display: inline-block;
 }
 
 img.view-list,
 img.view-grid {
-    height: 30px;
-    margin: 0 5px;
-    cursor: pointer;
+  height: 30px;
+  margin: 0 5px;
+  cursor: pointer;
 }
 
 /* FILES STYLE */
 .project-wrapper {
-    margin-bottom: 30px;
-    margin-right: 0;
-    background-color: rgb(15, 15, 15);
-    border-radius: 10px;
-    cursor: pointer;
-    overflow: hidden;
-    box-sizing: border-box;
-    border: 2px solid;
-    border-color: #a5630d00;
-    position: relative;
-    box-shadow: 0px 0px 0px 1px rgb(183, 183, 183);
-    transition: all 0.1s ease-in-out;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    width: 100%;
+  margin-bottom: 30px;
+  margin-right: 0;
+  background-color: rgb(15, 15, 15);
+  border-radius: 10px;
+  cursor: pointer;
+  overflow: hidden;
+  box-sizing: border-box;
+  /* border: 2px solid; */
+  border-color: #a5630d00;
+  position: relative;
+  /* box-shadow: 0px 0px 0px 1px rgb(183, 183, 183); */
+  transition: all 0.1s ease-in-out;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 100%;
 }
 
 .project-icon {
-    width: 150px;
-    height: 150px;
-    float: left;
-    margin-right: 3%;
-    background-color: rgb(15, 15, 15);
+  width: 150px;
+  height: 150px;
+  float: left;
+  margin-right: 3%;
+  background-color: rgb(15, 15, 15);
 }
 
 .default-meta {
-    color: rgb(183, 183, 183);
-    margin: 0;
+  color: rgb(183, 183, 183);
+  margin: 0;
 }
 
 .project-title {
-    color: rgb(165, 99, 13);
-    font-size: 18px;
-    margin-bottom: 10px;
-    position: relative;
-    padding-bottom: 5px;
+  color: rgb(165, 99, 13);
+  font-size: 18px;
+  margin-bottom: 10px;
+  position: relative;
+  padding-bottom: 5px;
 }
 
 .project-language {
-    font-size: 12px;
-    color: rgb(183, 183, 183);
+  font-size: 12px;
+  color: rgb(183, 183, 183);
 }
 
 .project-meta,
 .project-description-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin: auto;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: auto;
+  height: 100%;
+  padding-right: 20px;
 }
 
 .project-meta {
-    justify-content: center;
-    transition: all 0.3s ease-in-out;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
 }
 
 .project-description-container {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 p.project-description {
-    margin-top: 10px;
-    width: 80%;
-    font-size: 16px;
-    color: rgb(183, 183, 183);
-    font-family: 'Nunito';
+  margin-top: 10px;
+  width: 80%;
+  font-size: 16px;
+  color: rgb(183, 183, 183);
+  font-family: "Nunito";
 }
 
 .project-title::before {
-    content: "";
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: transparent;
-    transition: width 0.3s ease-in-out;
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: transparent;
+  transition: width 0.3s ease-in-out;
 }
 
 .project-wrapper:hover .project-meta {
-    padding-left: 10px;
+  padding-left: 10px;
 }
 
 .project-wrapper:hover {
-    box-shadow: 0px 0px 0px 2px rgb(183, 183, 183);
+  box-shadow: 0px 0px 0px 2px rgb(183, 183, 183);
 }
 
 .project-description-big {
-    color: rgb(183, 183, 183);
-    margin-bottom: 20px;
-    padding-right: 20%;
+  color: rgb(183, 183, 183);
+  margin-bottom: 20px;
+  padding-right: 20%;
 }
 .mobile .toggle-view-wrapper {
-    display: none;
+  display: none;
 }
 
 .grid .project-wrapper {
-    width: 46%;
-    margin-right: 2%;
-
+  width: 46%;
+  margin-right: 2%;
 }
 
 .grid .view-list,
 .list .view-grid {
-    display: none;
+  display: none;
 }
 
 .active {
-    border-color: #a5630d;
+  border-color: #a5630d;
 }
 
 .list .active .project-title {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 .active .project-title {
-    border-bottom: 2px solid #a5630d;
+  border-bottom: 2px solid #a5630d;
 }
 
 .header-button:hover::before,
 .project-wrapper:hover .project-title::before {
-    width: 100%;
-    background-color: rgb(165, 99, 13);
+  width: 100%;
+  background-color: rgb(165, 99, 13);
 }

@@ -1,0 +1,105 @@
+.TNavBarWrapper {
+  position: fixed;
+  background: #0f0f0fbb;
+  height: 100px;
+  width: 100vw;
+  left: 0;
+  right: 0;
+  z-index: 555;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 50px;
+  box-sizing: border-box;
+}
+.Logo {
+  height: 80px;
+  width: 100px;
+  background-image: url("./logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 60px;
+  cursor: pointer;
+}
+.Menu span {
+  transition: all 0.3s;
+}
+.Menu span:hover {
+  color: #32cd32;
+}
+.Menu {
+  text-transform: uppercase;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  font-size: 12px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+}
+@media only screen and (max-width: 1000px) {
+  .TNavBarWrapper {
+    padding: 25px;
+  }
+  .Menu {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    font-size: 26px;
+    background-color: #0f0f0f;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 100vh;
+    right: 0;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+  }
+  /* width: 50px;
+  height: 50px;
+  z-index: 2;
+} */
+  .Mobile {
+    position: absolute;
+    top: 15px;
+    height: 4px;
+    width: 40px;
+    background-color: #fff;
+    transition: all 0.3s ease-out;
+  }
+  .Mobile::before,
+  .Mobile::after {
+    content: " ";
+    height: 4px;
+    width: 40px;
+    background-color: #fff;
+    display: block;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+  }
+  .Mobile::before {
+    transform: translateY(15px);
+  }
+  .Mobile::after {
+    transform: translateY(-15px);
+  }
+  .Active .Mobile::before {
+    transform: translateY(0px);
+  }
+  .Active .Mobile::after {
+    transform: translateY(0px);
+    transform: rotate(-90deg);
+  }
+  .Active .Mobile {
+    transform: rotate(45deg);
+  }
+  .MenuButton {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    cursor: pointer;
+    z-index: 2;
+  }
+}

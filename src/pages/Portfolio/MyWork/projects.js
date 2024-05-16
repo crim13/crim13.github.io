@@ -10,47 +10,35 @@ const projects = [
   },
   {
     key: 2,
-    title: "Store",
+    title: "Shop",
     description:
-      "Dynamic React Weather App providing real-time weather updates. Engage with an intuitive interface, track weather conditions, and access accurate forecasts for a personalized and responsive weather experience.",
+      "An innovative single-page e-commerce platform crafted with React, offering seamless navigation and a dynamic user interface. Enjoy a streamlined shopping experience with robust functionalities and responsive design.",
     language: "React.js",
     isComponent: false,
     images: [],
   },
   {
     key: 3,
-    title: "Add To Cart",
-    description:
-      "Efficient React Add-to-Cart Component for seamless online shopping. Enhance user experience with a responsive interface, easy product management, and secure transactions, creating a convenient shopping journey for customers.",
-    language: "React.js",
+    title: "TechTeam",
+    description: "Generic website",
+    language: "TypeScript & CSS modules",
     isComponent: true,
     images: [],
   },
   {
     key: 4,
-    title: "Calendar",
-    description:
-      "Interactive React Calendar Component to help users manage and organize their events seamlessly. Features include a responsive design, easy event creation, and intuitive navigation, providing a user-friendly experience for scheduling.",
-    language: "React.js",
+    title: "QuizGame",
+    description: "Yet another boring QuizGame... or is it?",
+    language: "TypeScript & CSS modules",
     isComponent: true,
     images: [],
   },
   {
     key: 5,
-    title: "SortFilter",
-    description:
-      "Dynamic React Sort and Filter Component for efficiently managing and organizing data. Enhance user experience with customizable sorting and filtering options, making it easy for users to find and analyze information.",
-    language: "React.js",
-    isComponent: false,
-    images: [],
-  },
-  {
-    key: 6,
-    title: "Search",
-    description:
-      "Powerful React Search Component for quickly locating information. Improve user interaction with instant search results, filtering, and highlighting features, offering a seamless search experience in your application.",
-    language: "React.js",
-    isComponent: false,
+    title: "eCommerce",
+    description: "Yet another boring eCommerce... or is it?",
+    language: "TypeScript & CSS modules",
+    isComponent: true,
     images: [],
   },
 ];

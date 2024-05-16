@@ -54,7 +54,7 @@ const MyWork = () => {
     });
   }, []);
   useEffect(() => {
-    setIsGrid(isMobile);
+    setIsGrid(!isMobile);
   }, [isMobile]);
   //____________________________________________________________[ RETURN START ]
   return (
