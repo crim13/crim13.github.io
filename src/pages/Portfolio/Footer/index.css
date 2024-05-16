@@ -1,0 +1,90 @@
+.contact-info {
+  min-height: 100px;
+  display: block;
+  margin: 0;
+  margin-top: 30px;
+  padding: 0px 0;
+  color: rgb(183, 183, 183);
+  background-color: rgb(15, 15, 15);
+  border-radius: 10px;
+}
+
+.contact-link {
+  display: block;
+  padding: 30px 30px;
+  border-radius: 3px;
+  position: relative;
+  border-bottom: 1px solid #1c1f31;
+  transition: all 0.4s ease-in;
+  transition: opacity ease-in;
+}
+
+.contact-link:hover {
+  background-color: rgb(15, 15, 15);
+  padding-left: 40px;
+  border-color: rgb(165, 99, 13);
+  transition: all 0.4s ease-in-out;
+}
+
+span.contact-value {
+  float: right;
+  color: transparent;
+  transition: padding 0.4s ease-in-out;
+  font-family: "Fira Mono";
+}
+
+.contact-link:hover .contact-value {
+  text-shadow: 0 0 0px darkrgb(165, 99, 13);
+  color: rgb(165, 99, 13);
+  transition: all 0.4s ease-in-out;
+}
+
+.section.contact {
+  background-color: #1c1f31;
+}
+
+.section.copyright-footer {
+  color: rgb(183, 183, 183);
+  background-color: rgb(15, 15, 15);
+  text-align: center;
+  font-family: "Fira Mono";
+  height: 30px;
+  padding: 0;
+  margin: 0;
+  letter-spacing: 2px;
+  font-size: 14px;
+  line-height: 30px;
+  border: 0;
+}
+
+.section.copyright-footer p {
+  margin: 0;
+}
+
+.gold {
+  color: rgb(165, 99, 13);
+}
+
+/* SVG ::BEFORE */
+.contact-link::before {
+  color: rgb(165, 99, 13);
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.contact-link:hover::before {
+  opacity: 1;
+}
+
+.mail::before {
+  content: url("./mail.svg");
+}
+
+.linkedin::before {
+  content: url("./linkedin.svg");
+}
+
+.github::before {
+  content: url("./github.svg");
+}

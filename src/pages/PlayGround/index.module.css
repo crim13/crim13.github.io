@@ -1,0 +1,41 @@
+.Wrapper {
+  display: flex;
+  background-color: #060606;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding: 50px 30px;
+  .GradNum {
+    font-family: "Jost", sans-serif;
+    font-size: 300px;
+    font-weight: 800;
+    line-height: 210px;
+    margin: 0;
+    background: linear-gradient(#7722ff 25%, #31e7ff);
+    background-clip: text;
+    color: #fff0;
+    display: flex;
+    align-items: flex-end;
+    img {
+      margin-left: -15%;
+      border-radius: 15px;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.789);
+    }
+  }
+  /* .GradNum::after {
+    content: " ";
+    background: url("./lsfb.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: inline-block;
+    aspect-ratio: 3 / 4;
+    width: 20%;
+    border-radius: 15px;
+    margin-left: -70px;
+   
+  } */
+}

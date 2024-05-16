@@ -1,0 +1,26 @@
+img.not-found-img {
+    max-width: 100%;
+}
+
+div#error-page {
+    max-width: 60%;
+    margin: 30px auto;
+}
+
+div#error-page {
+    max-width: 60%;
+    margin: 30px auto;
+    color: aliceblue;
+    font-family: 'Fira Mono';
+}
+
+h1.not-found-title {
+    margin-bottom: 30px;
+    display: block;
+    font-family: 'Fira Mono';
+}
+
+p.not-found-text {
+    font-family: 'Fira Mono';
+    margin-top: 30px;
+}

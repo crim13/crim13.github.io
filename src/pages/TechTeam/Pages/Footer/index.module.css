@@ -1,0 +1,259 @@
+.FooterWrapper {
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  background-color: #0f0f0f;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 50px 150px;
+  box-sizing: border-box;
+  gap: 50px;
+}
+.CopyWrapper {
+  padding: 50px 150px;
+  color: #fff;
+  background-color: #0f0f0f;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-top: 1px solid #aaaaaa;
+}
+.QuickLinks div span:hover,
+.CopyWrapper div span:hover {
+  color: #32cd32;
+}
+.QuickLinks div span,
+.CopyWrapper div span {
+  margin: 0;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.CopyWrapper div span {
+  margin-left: 40px;
+}
+.Row1 {
+  display: flex;
+  gap: 50px;
+}
+.SocialLinks div {
+  display: flex;
+  gap: 20px;
+}
+.SocialLinks div span:hover {
+  background-color: #32cd3260;
+}
+.SocialLinks div span {
+  padding: 10px;
+  line-height: 10px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: #32cd3230;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  cursor: pointer;
+  background-position: center;
+  background-size: 25px;
+  background-repeat: no-repeat;
+}
+.SocialLinks {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.SocialLinks h3 {
+  letter-spacing: 1px;
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+.SocialLinks h3::before {
+  content: " ";
+  background-color: #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  margin-right: 20px;
+  background-image: url("./logo.png");
+  background-size: 40px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.NewsLetter div input {
+  width: 70%;
+  padding: 10px 30px;
+  outline: 0;
+}
+.NewsLetter div button {
+  width: 30%;
+}
+.NewsLetter div {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-evenly;
+  gap: 50px;
+}
+.NewsLetter h3 {
+  text-transform: capitalize;
+  margin: 0;
+  margin-bottom: 30px;
+  font-size: 26px;
+}
+.NewsLetter {
+  width: 60%;
+  background-color: #fff3;
+  padding: 50px;
+  border-radius: 25px;
+}
+
+.Row2 {
+  display: flex;
+  gap: 50px;
+}
+.QuickLinks {
+  width: 15%;
+}
+.QuickLinks div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 25px;
+}
+.ContactInfo {
+  width: 35%;
+  padding: 25px;
+  background: -webkit-linear-gradient(
+    -45deg,
+    rgba(144, 237, 137, 1) 0%,
+    rgba(50, 205, 50, 1) 48%,
+    rgba(15, 130, 15, 1) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border-radius: 25px;
+}
+.Map {
+  background-image: url("./map.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 50%;
+  height: auto;
+}
+
+.Facebook {
+  background-image: url("./fb.svg");
+}
+.Twitter {
+  background-image: url("./t.svg");
+}
+.Linkedin {
+  background-image: url("./in.svg");
+}
+.Instagram {
+  background-image: url("./i.svg");
+}
+
+.ContactInfo > div:before {
+  content: url("");
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.ContactInfo > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+}
+.ContactInfo > div > div p,
+.ContactInfo > div > div h3 {
+  margin: 0;
+}
+
+.ContactInfo > div > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+}
+.Location:before {
+  background-image: url("./pin.svg");
+}
+.Email:before {
+  content: url("./");
+  background-image: url("./mail.svg");
+}
+.Phone:before {
+  content: url("./");
+  background-image: url("./phone.svg");
+}
+
+.NewsLetter > div > input {
+  border-radius: 15px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .CopyWrapper,
+  .FooterWrapper {
+    padding: 25px;
+    height: auto;
+  }
+  .QuickLinks {
+    display: none;
+  }
+  .Map,
+  .ContactInfo {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 850px) {
+  .FooterWrapper div {
+    width: 100%;
+  }
+  .Row2,
+  .Row1 {
+    flex-direction: column;
+  }
+  .NewsLetter {
+    padding: 25px;
+  }
+  .NewsLetter div {
+    flex-direction: column;
+    gap: 25px;
+  }
+  .NewsLetter div button,
+  .NewsLetter div input {
+    width: 100%;
+    margin: 0;
+  }
+  .NewsLetter div input {
+    padding: 25px;
+  }
+  .CopyWrapper {
+    padding: 25px;
+    text-align: center;
+    flex-direction: column;
+  }
+  .CopyWrapper div,
+  .QuickLinks,
+  .Map {
+    display: none;
+  }
+}

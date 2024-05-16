@@ -1,0 +1,76 @@
+/* ****************************************************** GENERAL */
+#root {
+  width: 100vw;
+  /* height: 100vh; */
+  /* background-color: rgb(15, 15, 15); */
+  overflow-y: scroll;
+  overflow-x: hidden;
+  font-family: "Fira Mono";
+}
+.section {
+  width: 100%;
+  padding: 30px 15%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+a {
+  color: rgb(183, 183, 183);
+  font-family: "Nunito";
+  text-decoration: none;
+}
+a:hover {
+  color: rgb(165, 99, 13);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.section-title {
+  font-size: 26px;
+  display: inline-block;
+  color: rgb(183, 183, 183);
+  border-radius: 3px;
+  font-weight: 400;
+  position: relative;
+  width: 90%;
+  margin: 0;
+  font-family: "Fira Mono";
+}
+
+/* FLASHING CURSOR */
+@keyframes cursorFlash {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+.my-works.section:hover .section-title:after,
+.contact:hover .section-title:after {
+  content: "_";
+  animation: cursorFlash 2s infinite;
+}
+
+/* SCROLLBAR */
+#root::-webkit-scrollbar {
+  width: 5px;
+  transition: scroll 0.3s ease-out;
+}
+
+#root::-webkit-scrollbar-thumb {
+  background-color: rgb(15, 15, 15);
+}
+
+#root::-webkit-scrollbar-track {
+  background-color: rgb(15, 15, 15);
+}
+
+#root::-webkit-scrollbar-button {
+  display: none;
+}
+#root {
+  scroll-behavior: smooth;
+}

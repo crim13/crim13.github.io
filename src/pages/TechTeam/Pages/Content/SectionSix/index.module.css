@@ -1,0 +1,97 @@
+.Col1 h1 {
+  margin: 40px 0;
+}
+.ButtonWrapper {
+  width: 100%;
+  text-align: center;
+  margin: 50px 0 0;
+}
+.Cont2 {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+.Wrapper {
+  background-color: #0f0f0f;
+  padding: 100px 150px;
+  position: relative;
+  z-index: 1;
+}
+.Wrapper::after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  /* background-color: rgba(0, 0, 0, 0.85); */
+  z-index: -1;
+}
+
+.Card {
+  width: 33%;
+  transition: all 0.3s;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.Img {
+  height: 200px;
+  width: 100%;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 30px;
+  border-radius: 15px;
+}
+
+.LinkButton {
+  position: absolute;
+  right: 20px;
+  bottom: -25px;
+  padding: 13px;
+  box-sizing: border-box;
+  color: #32cd32;
+  background-color: #fff;
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  width: 50px;
+  height: 50px;
+  transition: all 0.3s ease-in-out;
+}
+.LinkButton > span {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.Card:hover .LinkButton,
+.LinkButton:hover {
+  background: -webkit-linear-gradient(
+    -45deg,
+    rgba(144, 237, 137, 1) 0%,
+    rgba(50, 205, 50, 1) 48%,
+    rgba(15, 130, 15, 1) 100%
+  );
+}
+.Card:hover .LinkButton > span,
+.LinkButton:hover > span {
+  filter: saturate(0) brightness(1000);
+}
+
+@media only screen and (max-width: 1200px) {
+  .Wrapper {
+    padding: 50px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .Cont2 > div {
+    width: 100%;
+  }
+  .Cont2 {
+    flex-direction: column;
+  }
+}
